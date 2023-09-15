@@ -3,6 +3,7 @@ import React, {FC} from 'react';
 import {Characters, Episodes, Locations} from '../screens';
 import {NavigationContainer} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
+import {Colors} from './theme';
 
 const {Navigator, Screen} = createBottomTabNavigator();
 
@@ -27,7 +28,12 @@ function TabBarIconEpisodes({color, size}: TabBarIconProps) {
 export const Router: FC = () => {
   return (
     <NavigationContainer>
-      <Navigator initialRouteName="Characters">
+      <Navigator
+        initialRouteName="Characters"
+        screenOptions={{
+          tabBarActiveTintColor: Colors.primary800,
+          tabBarInactiveTintColor: Colors.primary300,
+        }}>
         <Screen
           name="Characters"
           component={Characters}
