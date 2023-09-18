@@ -1,8 +1,9 @@
 import React, {FC, useEffect, useState} from 'react';
 import {FlatList} from 'react-native';
-import {Character, GetAllCharacters} from '../../api/repository/characters';
+import {GetAllCharacters} from '../../api/repository/characters';
 import {CharacterItem} from './components/character_item/character_item.component';
 import {Layout, Loader} from '../../components';
+import {Character} from '../../api/model/character.model';
 
 export const Characters: FC = () => {
   const [isLoading, setIsLoading] = useState(true);
