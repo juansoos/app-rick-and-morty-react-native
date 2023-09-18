@@ -4,7 +4,7 @@ import {Layout} from '../../components/layout/layout.component';
 import {Location} from '../../api/model/location.model';
 import {GetAllLocations} from '../../api/repository/locations';
 import {Loader} from '../../components';
-import {LocationItem} from './components/location_item/location_item.component';
+import {LocationItem} from './components';
 
 export const Locations: FC = () => {
   const [isLoading, setIsLoading] = useState(true);

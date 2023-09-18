@@ -4,7 +4,7 @@ import {Layout} from '../../components/layout/layout.component';
 import {Episode} from '../../api/model/episode.model';
 import {GetAllEpisodes} from '../../api/repository/episodes';
 import {Loader} from '../../components';
-import {EpisodeItem} from './components/episode_item/episode_item.component';
+import {EpisodeItem} from './components';
 
 export const Episodes: FC = () => {
   const [isLoading, setIsLoading] = useState(true);
