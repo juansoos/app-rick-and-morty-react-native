@@ -22,7 +22,7 @@ export const Locations: FC = () => {
   }, []);
 
   return (
-    <Layout title="Locations">
+    <Layout>
       {isLoading && <Loader />}
       {!isLoading && (
         <FlatList

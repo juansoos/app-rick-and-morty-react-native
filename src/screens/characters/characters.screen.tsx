@@ -21,7 +21,7 @@ export const Characters: FC = () => {
   }, []);
 
   return (
-    <Layout title="Characters">
+    <Layout>
       {isLoading && <Loader />}
       {!isLoading && (
         <FlatList

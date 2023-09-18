@@ -22,7 +22,7 @@ export const Episodes: FC = () => {
   }, []);
 
   return (
-    <Layout title="Episodes">
+    <Layout>
       {isLoading && <Loader />}
       {!isLoading && (
         <FlatList
