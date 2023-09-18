@@ -13,11 +13,11 @@ export const styles = StyleSheet.create({
     fontWeight: '600',
     color: Colors.primary800,
   },
-  type: {
+  episode: {
     ...getTypography('body'),
     color: Colors.primary600,
   },
-  dimension: {
+  air_date: {
     ...getTypography('body'),
     color: Colors.primary600,
   },
