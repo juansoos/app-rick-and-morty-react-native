@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import {FlatList} from 'react-native';
 import {GetAllCharacters} from '../../api/repository/characters';
-import {CharacterItem} from './components/character_item/character_item.component';
+import {CharacterItem} from './components';
 import {Layout, Loader} from '../../components';
 import {Character} from '../../api/model/character.model';
 
