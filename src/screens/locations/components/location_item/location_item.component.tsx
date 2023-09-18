@@ -15,8 +15,8 @@ export const LocationItem: FC<LocationItemProps> = props => {
     <View style={styles.container}>
       <View>
         <Text style={styles.name}>{name}</Text>
-        <Text style={styles.species}>{`Type: ${type}`}</Text>
-        <Text style={styles.gender}>{`Dimension: ${dimension}`}</Text>
+        <Text style={styles.type}>{`Type: ${type}`}</Text>
+        <Text style={styles.dimension}>{`Dimension: ${dimension}`}</Text>
       </View>
     </View>
   );
