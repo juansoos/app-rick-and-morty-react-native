@@ -7,9 +7,12 @@ type GetAllCharactersResponse = {
   error: null | string;
 };
 
-export const GetAllCharacters = async (): Promise<GetAllCharactersResponse> => {
+export const GetAllCharacters = async (
+  page: number = 1,
+): Promise<GetAllCharactersResponse> => {
   try {
-    const response = await fetch('https://rickandmortyapi.com/api/character');
+    const url = `https://rickandmortyapi.com/api/character/?page=${page}`;
+    const response = await fetch(url);
     const data: GetAllCharactersResponse = await response.json();
 
     return {
