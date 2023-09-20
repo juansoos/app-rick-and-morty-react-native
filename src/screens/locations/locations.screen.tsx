@@ -44,8 +44,8 @@ export const Locations: FC = () => {
   const renderFooter = () => (
     <Footer
       isMoreLoading={isMoreLoading}
-      hasMoreCharacters={hasMoreLocations}
-      text={' No more episodes at the moment'}
+      hasMoreElements={hasMoreLocations}
+      text={' No more locations at the moment'}
     />
   );
 

@@ -43,7 +43,7 @@ export const Characters: FC = () => {
   const renderFooter = () => (
     <Footer
       isMoreLoading={isMoreLoading}
-      hasMoreCharacters={hasMoreCharacters}
+      hasMoreElements={hasMoreCharacters}
       text={' No more characters at the moment'}
     />
   );

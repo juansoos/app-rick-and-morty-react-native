@@ -5,19 +5,19 @@ import {styles} from './footer.styles';
 
 interface FooterProps {
   isMoreLoading: boolean;
-  hasMoreCharacters: boolean;
+  hasMoreElements: boolean;
   text: string;
 }
 
 export const Footer: FC<FooterProps> = ({
   isMoreLoading,
-  hasMoreCharacters,
+  hasMoreElements,
   text,
 }) => {
   return (
     <View style={styles.footer}>
       {isMoreLoading && <Loader />}
-      {!hasMoreCharacters && <Text style={styles.footerText}>{text}</Text>}
+      {!hasMoreElements && <Text style={styles.footerText}>{text}</Text>}
     </View>
   );
 };

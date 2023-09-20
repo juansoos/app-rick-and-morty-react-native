@@ -44,7 +44,7 @@ export const Episodes: FC = () => {
   const renderFooter = () => (
     <Footer
       isMoreLoading={isMoreLoading}
-      hasMoreCharacters={hasMoreEpisodes}
+      hasMoreElements={hasMoreEpisodes}
       text={' No more episodes at the moment'}
     />
   );
