@@ -4,19 +4,19 @@ import {Loader} from '../loader/loader.component';
 import {styles} from './footer.styles';
 
 interface FooterProps {
-  isMoreLoading: boolean;
+  isLoadingVisible: boolean;
   hasMoreElements: boolean;
   text: string;
 }
 
 export const Footer: FC<FooterProps> = ({
-  isMoreLoading,
+  isLoadingVisible,
   hasMoreElements,
   text,
 }) => {
   return (
     <View style={styles.footer}>
-      {isMoreLoading && <Loader />}
+      {isLoadingVisible && <Loader />}
       {!hasMoreElements && <Text style={styles.footerText}>{text}</Text>}
     </View>
   );
