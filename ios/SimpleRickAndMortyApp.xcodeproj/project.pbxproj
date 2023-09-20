@@ -12,10 +12,10 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		63EE36BC53F242F592B8333F /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C0CFDE2645F481699701422 /* Lato-Light.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-SimpleRickAndMortyApp-SimpleRickAndMortyAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-SimpleRickAndMortyApp-SimpleRickAndMortyAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9C1D69734B574707B074FDE1 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28AAE62A4FA04FFB9FD79BFE /* Lato-Bold.ttf */; };
-		63EE36BC53F242F592B8333F /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C0CFDE2645F481699701422 /* Lato-Light.ttf */; };
 		B5A6230CDC2D4674AEBC36D9 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33D696EE142D43AE8CE5F421 /* Lato-Regular.ttf */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +40,9 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SimpleRickAndMortyApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SimpleRickAndMortyApp/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-SimpleRickAndMortyApp-SimpleRickAndMortyAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SimpleRickAndMortyApp-SimpleRickAndMortyAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C0CFDE2645F481699701422 /* Lato-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Light.ttf"; path = "../assets/fonts/Lato-Light.ttf"; sourceTree = "<group>"; };
+		28AAE62A4FA04FFB9FD79BFE /* Lato-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Bold.ttf"; path = "../assets/fonts/Lato-Bold.ttf"; sourceTree = "<group>"; };
+		33D696EE142D43AE8CE5F421 /* Lato-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Regular.ttf"; path = "../assets/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-SimpleRickAndMortyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleRickAndMortyApp.debug.xcconfig"; path = "Target Support Files/Pods-SimpleRickAndMortyApp/Pods-SimpleRickAndMortyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-SimpleRickAndMortyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleRickAndMortyApp.release.xcconfig"; path = "Target Support Files/Pods-SimpleRickAndMortyApp/Pods-SimpleRickAndMortyApp.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-SimpleRickAndMortyApp-SimpleRickAndMortyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleRickAndMortyApp-SimpleRickAndMortyAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SimpleRickAndMortyApp-SimpleRickAndMortyAppTests/Pods-SimpleRickAndMortyApp-SimpleRickAndMortyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -66,9 +69,6 @@
 		F5A834422AB4ED28005DFCF0 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = EvilIcons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		F5A834432AB4ED28005DFCF0 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Fontisto.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		F5A834442AB4ED28005DFCF0 /* FontAwesome6_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome6_Regular.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/FontAwesome6_Regular.ttf"; sourceTree = "<group>"; };
-		28AAE62A4FA04FFB9FD79BFE /* Lato-Bold.ttf */ = {isa = PBXFileReference; name = "Lato-Bold.ttf"; path = "../assets/fonts/Lato-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		1C0CFDE2645F481699701422 /* Lato-Light.ttf */ = {isa = PBXFileReference; name = "Lato-Light.ttf"; path = "../assets/fonts/Lato-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		33D696EE142D43AE8CE5F421 /* Lato-Regular.ttf */ = {isa = PBXFileReference; name = "Lato-Regular.ttf"; path = "../assets/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +130,17 @@
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-SimpleRickAndMortyApp-SimpleRickAndMortyAppTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7D4ED864546C4E3589761BEC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				28AAE62A4FA04FFB9FD79BFE /* Lato-Bold.ttf */,
+				1C0CFDE2645F481699701422 /* Lato-Light.ttf */,
+				33D696EE142D43AE8CE5F421 /* Lato-Regular.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -200,17 +211,6 @@
 			);
 			path = Fonts;
 			sourceTree = "<group>";
-		};
-		7D4ED864546C4E3589761BEC /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				28AAE62A4FA04FFB9FD79BFE /* Lato-Bold.ttf */,
-				1C0CFDE2645F481699701422 /* Lato-Light.ttf */,
-				33D696EE142D43AE8CE5F421 /* Lato-Regular.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
