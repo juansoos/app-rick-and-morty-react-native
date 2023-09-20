@@ -1,11 +1,10 @@
 import React, {FC, useEffect, useState} from 'react';
 import uuid from 'react-native-uuid';
-import {FlatList, View, Text} from 'react-native';
+import {FlatList} from 'react-native';
 import {GetAllCharacters} from '../../api/repository/characters';
 import {CharacterItem} from './components';
-import {Layout, Loader} from '../../components';
+import {Footer, Layout, Loader} from '../../components';
 import {Character} from '../../api/model/character.model';
-import {styles} from './characters.styles';
 
 export const Characters: FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -37,22 +36,17 @@ export const Characters: FC = () => {
     }
   };
 
-  const renderFooter = () => {
-    return (
-      <View style={styles.footer}>
-        {isMoreLoading && <Loader />}
-        {!hasMoreCharacters && (
-          <Text style={styles.footerText}>
-            No more characters at the moment
-          </Text>
-        )}
-      </View>
-    );
-  };
-
   useEffect(() => {
     getInitialCharacters();
   }, []);
+
+  const renderFooter = () => (
+    <Footer
+      isMoreLoading={isMoreLoading}
+      hasMoreCharacters={hasMoreCharacters}
+      text={' No more characters at the moment'}
+    />
+  );
 
   return (
     <Layout>
