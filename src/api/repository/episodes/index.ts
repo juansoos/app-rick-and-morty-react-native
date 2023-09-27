@@ -1,30 +1,30 @@
+import {HttpClientService} from '../../http_client';
 import {Episode} from '../../model/episode.model';
-import {InfoResult} from '../../model/info_result.model';
+import {CustomResponse} from '../../model/response.model';
 
-type GetAllEpisodesResponse = {
-  info: InfoResult | null;
-  results: Array<Episode>;
-  error: null | string;
-};
+export class EpisodeRepository {
+  private service: HttpClientService;
 
-export const GetAllEpisodes = async (
-  page: number = 1,
-): Promise<GetAllEpisodesResponse> => {
-  try {
-    const url = `https://rickandmortyapi.com/api/episode/?page=${page}`;
-    const response = await fetch(url);
-    const data: GetAllEpisodesResponse = await response.json();
-
-    return {
-      info: data.info,
-      results: data.results,
-      error: null,
-    };
-  } catch (e) {
-    return {
-      info: null,
-      results: [],
-      error: (e as Error).message,
-    };
+  constructor(service: HttpClientService) {
+    this.service = service;
   }
-};
+
+  async getEpisodes(page: number = 1): Promise<CustomResponse<Episode>> {
+    try {
+      const url = `/episode/?page=${page}`;
+      const data: CustomResponse<Episode> = await this.service.get(url);
+
+      return {
+        info: data.info,
+        results: data.results,
+        error: null,
+      };
+    } catch (e) {
+      return {
+        info: null,
+        results: [],
+        error: (e as Error).message,
+      };
+    }
+  }
+}

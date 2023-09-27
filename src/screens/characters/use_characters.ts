@@ -11,7 +11,7 @@ export const useCharacters = () => {
   const [page, setPage] = useState(1);
 
   const getInitialCharacters = async () => {
-    const response = await characterRepository.getAllCharacter();
+    const response = await characterRepository.getCharacters();
 
     setIsInitialLoadingVisible(false);
     setCharacters(response.results);
@@ -23,7 +23,7 @@ export const useCharacters = () => {
       const nextPage = page + 1;
       setIsMoreLoadingVisible(true);
 
-      const response = await characterRepository.getAllCharacter(nextPage);
+      const response = await characterRepository.getCharacters(nextPage);
 
       setIsMoreLoadingVisible(false);
       setCharacters(prev => [...prev, ...response.results]);

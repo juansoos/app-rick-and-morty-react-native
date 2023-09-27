@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
-import {GetAllEpisodes} from '../../api/repository/episodes';
+
 import {Episode} from '../../api/model/episode.model';
+import {episodeRepository} from '../../common/di/repository_module';
 
 export const useEpisodes = () => {
   const [isInitialLoadingVisible, setIsInitialLoadingVisible] = useState(true);
@@ -11,7 +12,7 @@ export const useEpisodes = () => {
   const [page, setPage] = useState(1);
 
   const getInitialEpisodes = async () => {
-    const response = await GetAllEpisodes();
+    const response = await episodeRepository.getEpisodes();
 
     setIsInitialLoadingVisible(false);
     setEpisodes(response.results);
@@ -23,7 +24,7 @@ export const useEpisodes = () => {
       const nextPage = page + 1;
       setIsMoreLoadingVisible(true);
 
-      const response = await GetAllEpisodes(nextPage);
+      const response = await episodeRepository.getEpisodes(nextPage);
 
       setIsMoreLoadingVisible(false);
       setEpisodes(prev => [...prev, ...response.results]);
