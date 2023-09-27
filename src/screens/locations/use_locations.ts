@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import {Location} from '../../api/model/location.model';
-import {GetAllLocations} from '../../api/repository/locations';
+import {locationRepository} from '../../common/di/repository_module';
 
 export const useLocations = () => {
   const [isInitialLoadingVisible, setIsInitialLoadingVisible] = useState(true);
@@ -11,7 +11,7 @@ export const useLocations = () => {
   const [page, setPage] = useState(1);
 
   const getInitialLocations = async () => {
-    const response = await GetAllLocations();
+    const response = await locationRepository.getLocations();
 
     setIsInitialLoadingVisible(false);
     setLocations(response.results);
@@ -23,7 +23,7 @@ export const useLocations = () => {
       const nextPage = page + 1;
       setIsMoreLoadingVisible(true);
 
-      const response = await GetAllLocations(nextPage);
+      const response = await locationRepository.getLocations(nextPage);
 
       setIsMoreLoadingVisible(false);
       setLocations(prev => [...prev, ...response.results]);

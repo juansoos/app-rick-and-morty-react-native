@@ -9,7 +9,7 @@ export class CharacterRepository {
     this.service = service;
   }
 
-  async getAllCharacter(page: number = 1): Promise<CustomResponse<Character>> {
+  async getCharacters(page: number = 1): Promise<CustomResponse<Character>> {
     try {
       const url = `/character/?page=${page}`;
       const data: CustomResponse<Character> = await this.service.get(url);

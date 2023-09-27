@@ -1,30 +1,30 @@
-import {InfoResult} from '../../model/info_result.model';
+import {HttpClientService} from '../../http_client';
 import {Location} from '../../model/location.model';
+import {CustomResponse} from '../../model/response.model';
 
-type GetAllLocationsResponse = {
-  info: InfoResult | null;
-  results: Array<Location>;
-  error: null | string;
-};
+export class LocationRepository {
+  private service: HttpClientService;
 
-export const GetAllLocations = async (
-  page: number = 1,
-): Promise<GetAllLocationsResponse> => {
-  try {
-    const url = `https://rickandmortyapi.com/api/location/?page=${page}`;
-    const response = await fetch(url);
-    const data: GetAllLocationsResponse = await response.json();
-
-    return {
-      info: data.info,
-      results: data.results,
-      error: null,
-    };
-  } catch (e) {
-    return {
-      info: null,
-      results: [],
-      error: (e as Error).message,
-    };
+  constructor(service: HttpClientService) {
+    this.service = service;
   }
-};
+
+  async getLocations(page: number = 1): Promise<CustomResponse<Location>> {
+    try {
+      const url = `/location/?page=${page}`;
+      const data: CustomResponse<Location> = await this.service.get(url);
+
+      return {
+        info: data.info,
+        results: data.results,
+        error: null,
+      };
+    } catch (e) {
+      return {
+        info: null,
+        results: [],
+        error: (e as Error).message,
+      };
+    }
+  }
+}
