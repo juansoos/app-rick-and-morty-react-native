@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import {Character} from '../../api/model/character.model';
-import {GetAllCharacters} from '../../api/repository/characters';
+import {characterRepository} from '../../common/di/repository_module';
 
 export const useCharacters = () => {
   const [isInitialLoadingVisible, setIsInitialLoadingVisible] = useState(true);
@@ -11,7 +11,7 @@ export const useCharacters = () => {
   const [page, setPage] = useState(1);
 
   const getInitialCharacters = async () => {
-    const response = await GetAllCharacters();
+    const response = await characterRepository.getAllCharacter();
 
     setIsInitialLoadingVisible(false);
     setCharacters(response.results);
@@ -23,7 +23,7 @@ export const useCharacters = () => {
       const nextPage = page + 1;
       setIsMoreLoadingVisible(true);
 
-      const response = await GetAllCharacters(nextPage);
+      const response = await characterRepository.getAllCharacter(nextPage);
 
       setIsMoreLoadingVisible(false);
       setCharacters(prev => [...prev, ...response.results]);
