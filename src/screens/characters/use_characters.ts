@@ -6,9 +6,11 @@ export const useCharacters = () => {
   const [isInitialLoadingVisible, setIsInitialLoadingVisible] = useState(true);
   const [isMoreLoadingVisible, setIsMoreLoadingVisible] = useState(false);
   const [hasMoreCharacters, setHasMoreCharacters] = useState(true);
+  const [isSearchActive, setIsSearchActive] = useState(false);
 
   const [characters, setCharacters] = useState<Array<Character>>([]);
   const [page, setPage] = useState(1);
+  const [searchPhrase, setSearchPhrase] = useState('');
 
   const getInitialCharacters = async () => {
     const response = await characterRepository.getCharacters();
@@ -19,7 +21,7 @@ export const useCharacters = () => {
   };
 
   const fetchMoreCharacters = async () => {
-    if (hasMoreCharacters) {
+    if (hasMoreCharacters && !isSearchActive) {
       const nextPage = page + 1;
       setIsMoreLoadingVisible(true);
 
@@ -32,6 +34,33 @@ export const useCharacters = () => {
     }
   };
 
+  const onSearch = (query: string) => {
+    const initialCharacters = characters;
+    setSearchPhrase(query);
+
+    if (query !== '') {
+      const charecterListFiltered = initialCharacters.filter(character =>
+        character.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()),
+      );
+
+      setCharacters(charecterListFiltered);
+    } else {
+      setCharacters(initialCharacters);
+    }
+  };
+
+  const onReset = async () => {
+    setIsInitialLoadingVisible(true);
+    setSearchPhrase('');
+    setIsSearchActive(false);
+
+    const response = await characterRepository.getCharacters();
+
+    setIsInitialLoadingVisible(false);
+    setCharacters(response.results);
+    setHasMoreCharacters(response.info?.next != null);
+  };
+
   useEffect(() => {
     getInitialCharacters();
   }, []);
@@ -42,5 +71,10 @@ export const useCharacters = () => {
     hasMoreCharacters,
     characters,
     fetchMoreCharacters,
+    searchPhrase,
+    onSearch,
+    isSearchActive,
+    setIsSearchActive,
+    onReset,
   };
 };

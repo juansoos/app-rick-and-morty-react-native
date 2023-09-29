@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {FlatList} from 'react-native';
 import uuid from 'react-native-uuid';
 import {CharacterItem} from './components';
-import {Footer, Layout, Loader} from '../../components';
+import {Empty, Footer, Layout, Loader, SearchBar} from '../../components';
 import {useCharacters} from './use_characters';
 
 export const Characters: FC = () => {
@@ -12,6 +12,11 @@ export const Characters: FC = () => {
     hasMoreCharacters,
     characters,
     fetchMoreCharacters,
+    searchPhrase,
+    onSearch,
+    setIsSearchActive,
+    isSearchActive,
+    onReset,
   } = useCharacters();
 
   return (
@@ -34,6 +39,16 @@ export const Characters: FC = () => {
               />
             );
           }}
+          ListEmptyComponent={<Empty onReset={onReset} />}
+          ListHeaderComponent={
+            <SearchBar
+              placeholder={'Buscar'}
+              value={searchPhrase}
+              onChangeText={onSearch}
+              onFocus={setIsSearchActive}
+              focus={isSearchActive}
+            />
+          }
           ListFooterComponent={
             <Footer
               isLoadingVisible={isMoreLoadingVisible}
