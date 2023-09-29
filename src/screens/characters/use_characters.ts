@@ -70,10 +70,10 @@ export const useCharacters = () => {
     isMoreLoadingVisible,
     hasMoreCharacters,
     characters,
-    fetchMoreCharacters,
     searchPhrase,
-    onSearch,
     isSearchActive,
+    onSearch,
+    fetchMoreCharacters,
     setIsSearchActive,
     onReset,
   };

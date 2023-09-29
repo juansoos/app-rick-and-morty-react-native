@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {FlatList} from 'react-native';
 import uuid from 'react-native-uuid';
 import {Layout} from '../../components/layout/layout.component';
-import {Footer, Loader} from '../../components';
+import {Empty, Footer, Loader, SearchBar} from '../../components';
 import {LocationItem} from './components';
 import {useLocations} from './use_locations';
 
@@ -12,7 +12,12 @@ export const Locations: FC = () => {
     isMoreLoadingVisible,
     hasMoreLocations,
     locations,
+    isSearchActive,
+    searchPhrase,
     fetchMoreLocations,
+    onSearch,
+    setIsSearchActive,
+    onReset,
   } = useLocations();
 
   return (
@@ -34,6 +39,16 @@ export const Locations: FC = () => {
               />
             );
           }}
+          ListEmptyComponent={<Empty onReset={onReset} />}
+          ListHeaderComponent={
+            <SearchBar
+              placeholder={'Buscar'}
+              value={searchPhrase}
+              onChangeText={onSearch}
+              onFocus={setIsSearchActive}
+              focus={isSearchActive}
+            />
+          }
           ListFooterComponent={
             <Footer
               isLoadingVisible={isMoreLoadingVisible}

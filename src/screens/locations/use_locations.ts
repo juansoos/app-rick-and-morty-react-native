@@ -6,9 +6,11 @@ export const useLocations = () => {
   const [isInitialLoadingVisible, setIsInitialLoadingVisible] = useState(true);
   const [isMoreLoadingVisible, setIsMoreLoadingVisible] = useState(false);
   const [hasMoreLocations, setHasMoreLocations] = useState(true);
+  const [isSearchActive, setIsSearchActive] = useState(false);
 
   const [locations, setLocations] = useState<Array<Location>>([]);
   const [page, setPage] = useState(1);
+  const [searchPhrase, setSearchPhrase] = useState('');
 
   const getInitialLocations = async () => {
     const response = await locationRepository.getLocations();
@@ -19,7 +21,7 @@ export const useLocations = () => {
   };
 
   const fetchMoreLocations = async () => {
-    if (hasMoreLocations) {
+    if (hasMoreLocations && !isSearchActive) {
       const nextPage = page + 1;
       setIsMoreLoadingVisible(true);
 
@@ -32,6 +34,33 @@ export const useLocations = () => {
     }
   };
 
+  const onSearch = (query: string) => {
+    const initialLocations = locations;
+    setSearchPhrase(query);
+
+    if (query !== '') {
+      const locationListFiltered = initialLocations.filter(location =>
+        location.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()),
+      );
+
+      setLocations(locationListFiltered);
+    } else {
+      setLocations(initialLocations);
+    }
+  };
+
+  const onReset = async () => {
+    setIsInitialLoadingVisible(true);
+    setSearchPhrase('');
+    setIsSearchActive(false);
+
+    const response = await locationRepository.getLocations();
+
+    setIsInitialLoadingVisible(false);
+    setLocations(response.results);
+    setHasMoreLocations(response.info?.next != null);
+  };
+
   useEffect(() => {
     getInitialLocations();
   }, []);
@@ -41,6 +70,11 @@ export const useLocations = () => {
     isMoreLoadingVisible,
     hasMoreLocations,
     locations,
+    searchPhrase,
+    isSearchActive,
     fetchMoreLocations,
+    onSearch,
+    setIsSearchActive,
+    onReset,
   };
 };

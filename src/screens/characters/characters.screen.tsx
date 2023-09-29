@@ -11,11 +11,11 @@ export const Characters: FC = () => {
     isMoreLoadingVisible,
     hasMoreCharacters,
     characters,
-    fetchMoreCharacters,
+    isSearchActive,
     searchPhrase,
+    fetchMoreCharacters,
     onSearch,
     setIsSearchActive,
-    isSearchActive,
     onReset,
   } = useCharacters();
 
