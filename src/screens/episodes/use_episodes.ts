@@ -7,9 +7,11 @@ export const useEpisodes = () => {
   const [isInitialLoadingVisible, setIsInitialLoadingVisible] = useState(true);
   const [isMoreLoadingVisible, setIsMoreLoadingVisible] = useState(false);
   const [hasMoreEpisodes, setHasMoreEpisodes] = useState(true);
+  const [isSearchActive, setIsSearchActive] = useState(false);
 
   const [episodes, setEpisodes] = useState<Array<Episode>>([]);
   const [page, setPage] = useState(1);
+  const [searchPhrase, setSearchPhrase] = useState('');
 
   const getInitialEpisodes = async () => {
     const response = await episodeRepository.getEpisodes();
@@ -33,6 +35,33 @@ export const useEpisodes = () => {
     }
   };
 
+  const onSearch = (query: string) => {
+    const initialEpisodes = episodes;
+    setSearchPhrase(query);
+
+    if (query !== '') {
+      const episodeListFiltered = initialEpisodes.filter(episode =>
+        episode.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()),
+      );
+
+      setEpisodes(episodeListFiltered);
+    } else {
+      setEpisodes(initialEpisodes);
+    }
+  };
+
+  const onReset = async () => {
+    setIsInitialLoadingVisible(true);
+    setSearchPhrase('');
+    setIsSearchActive(false);
+
+    const response = await episodeRepository.getEpisodes();
+
+    setIsInitialLoadingVisible(false);
+    setEpisodes(response.results);
+    setHasMoreEpisodes(response.info?.next != null);
+  };
+
   useEffect(() => {
     getInitialEpisodes();
   }, []);
@@ -42,6 +71,11 @@ export const useEpisodes = () => {
     isMoreLoadingVisible,
     hasMoreEpisodes,
     episodes,
+    searchPhrase,
+    isSearchActive,
+    onSearch,
     fetchMoreEpisodes,
+    setIsSearchActive,
+    onReset,
   };
 };
